@@ -15,6 +15,12 @@ export const ROUTES = [
         exact: true,
         element: CategoriesPage,
       },
+      {
+        path: "/resultados",
+        key: "APP_RESULTS",
+        exact: true,
+        element: ProductsPage,
+      },
     ],
   }
 ];

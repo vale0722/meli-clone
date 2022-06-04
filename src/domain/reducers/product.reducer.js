@@ -4,9 +4,9 @@ import {
 
 const initialState = [];
 
-export function queryProducts(search, paging, setIsLoading) {
+export function queryProducts(search, category, paging, setIsLoading) {
   return async function action(dispatch) {
-    let response = await searchProducts(search, paging, setIsLoading);
+    let response = await searchProducts(search, category, paging, setIsLoading);
     dispatch({ type: "products/search", payload: response });
   };
 }

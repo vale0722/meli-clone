@@ -2,23 +2,17 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { searchProducts } from "../../../domain/helpers/products";
 
-export default function CardPrimary({ image, title, keyword, setIsLoading }) {
+export default function CardPrimary({ category, setIsLoading }) {
   const navigate = useNavigate();
+  console.log(category);
   return (
     <button
-      onClick={() => searchProducts(navigate, keyword, setIsLoading)}
-      className="cursor-pointer w-full h-full group group-hover:bg-opacity-50 bg-gray-900 flex justify-center items-center relative"
+      onClick={() => searchProducts(navigate, category.id, setIsLoading)}
+      className="cursor-pointer group group-hover:bg-opacity-50 bg-gray-900 flex justify-center items-center relative"
     >
-      <img
-        className="group-hover:opacity-50 transition duration-500 w-full h-full"
-        src={image}
-        alt={title}
-      />
-      <div className="absolute flex justify-center h-full pb-5 items-end w-full">
-        <span className="text-3xl sm:text-4xl font-extrabold flex align-bottom leading-9 text-white italic">
-          {title}
+        <span className="text-3xl sm:text-4xl font-extrabold flex align-bottom leading-9  italic">
+         {category.name}
         </span>
-      </div>
     </button>
   );
 }

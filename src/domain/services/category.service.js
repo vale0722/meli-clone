@@ -1,7 +1,7 @@
 import service from "./service";
 import config from "../config";
 
-export function getCategories(paging, setIsLoading) {
+export function getCategories(setIsLoading) {
   setIsLoading(true);
   return service.get(`/sites/${config.country}/categories`)
     .then((response) => {
