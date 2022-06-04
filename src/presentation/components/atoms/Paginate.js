@@ -1,15 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { searchProducts } from "../../../domain/helpers/products";
-import { useNavigate } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 export default function Paginate({ setIsLoading }) {
   const navigator = useNavigate();
+  const { category } = useParams();
   const paging = useSelector((state) => state.paging);
   const search = useSelector((state) => state.search);
   const before = async () => {
     if (paging.offset !== 0) {
-      await searchProducts(navigator, search, setIsLoading, {
+      await searchProducts(navigator, search, category, setIsLoading, {
         offset: paging.offset - 50,
       });
     }
@@ -17,7 +18,7 @@ export default function Paginate({ setIsLoading }) {
 
   const next = async () => {
     if (paging.offset <= paging.total) {
-      await searchProducts(navigator, search, setIsLoading, {
+      await searchProducts(navigator, search, category, setIsLoading, {
         offset: paging.offset + 50,
       });
     }

@@ -15,14 +15,18 @@ export const ROUTES = [
         exact: true,
         element: CategoriesPage,
       },
-      {
-        path: "/resultados",
-        key: "APP_RESULTS",
-        exact: true,
-        element: ProductsPage,
-      },
     ],
-  }
+  },
+  {
+    path: "/resultados/buscar",
+    key: "results",
+    element: ProductsPage,
+  },
+  {
+    path: "/resultados/categorias/:category",
+    key: "results-by-category",
+    element: ProductsPage,
+  },
 ];
 
 export function RenderRoutes({ routes, setIsLoading }) {

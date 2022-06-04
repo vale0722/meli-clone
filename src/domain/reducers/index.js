@@ -7,7 +7,7 @@ const rootReducer = combineReducers({
   products,
   search,
   categories,
-  paging,
+  paging
 });
 
 export default rootReducer;

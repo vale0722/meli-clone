@@ -9,11 +9,22 @@ const search = async (value) => await store.dispatch(searchState(value));
 export const searchProducts = async (
   navigate,
   key,
+  category,
   setIsLoading,
   paginate = []
 ) => {
   search(key).then(async () => {
-    await fetchProducts(key, setIsLoading, paginate);
-    navigate(`/resultados`);
+    await fetchProducts(key, category, setIsLoading, paginate);
+    navigate(`/resultados/buscar`);
   });
+};
+
+export const searchProductsByCategory = async (
+  navigate,
+  category,
+  setIsLoading,
+  paginate = []
+) => {
+  await fetchProducts('', category.id, setIsLoading, paginate);
+  navigate(`/resultados/categorias/${category.id}`);
 };

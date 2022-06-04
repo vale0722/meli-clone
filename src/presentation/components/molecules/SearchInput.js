@@ -1,42 +1,38 @@
 import React from "react";
 import "../../assets/styles/inputs/search.scss";
-import Icon from "../atoms/Icon";
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { store } from "../../../domain/helpers/store";
-import { useNavigate } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import { useSelector } from "react-redux";
 import { searchState } from "../../../domain/reducers/search.reducer";
 import { searchProducts } from "../../../domain/helpers/products";
-import * as PropTypes from "prop-types";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function FontAwesomeIcon(props) {
-    return null;
-}
-
-FontAwesomeIcon.propTypes = {icon: PropTypes.string};
 export default function SearchInput({ setIsLoading }) {
   const search = useSelector((state) => state.search);
+  const { category } = useParams();
   const navigate = useNavigate();
   const setSearch = async (value) => await store.dispatch(searchState(value));
 
   return (
-    <div className="flex w-full h-8">
+    <div className="flex w-full h-8 shadow-sm group">
       <input
         type="search"
         className="search w-full"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="Busca aquí un producto"
+        placeholder="Buscar productos, marcas y más…"
         onKeyPress={(event) => {
           if (event.key === "Enter") {
-            searchProducts(navigate, search, setIsLoading);
+            searchProducts(navigate, search, category, setIsLoading);
           }
         }}
       />
       <button
-        onClick={() => searchProducts(navigate, search, setIsLoading)}
+        onClick={() => searchProducts(navigate, search, category, setIsLoading)}
         className="btn-search"
       >
-          <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+          <FontAwesomeIcon icon={faSearch} />
       </button>
     </div>
   );
