@@ -1,0 +1,7 @@
+.search {
+  @apply bg-gray-100 border-0 p-2 focus:outline-2 focus:outline-gray-300;
+}
+
+.btn-search {
+  @apply bg-gray-200 w-10 flex justify-center items-center transition ease-in-out delay-150 hover:bg-gray-300;
+}

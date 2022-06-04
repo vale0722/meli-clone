@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap");
+
+.swiper-button-next,
+.swiper-button-prev {
+  background: rgb(96 96 96 / 15%) 0 0 no-repeat padding-box;
+  @apply p-8;
+  --swiper-navigation-color: white;
+  --swiper-navigation-size: 32px;
+}
+
+.swiper-pagination-bullet {
+  --swiper-pagination-bullet-size: 1rem;
+  --swiper-pagination-bullet-inactive-color: #ffffff 0 0 no-repeat padding-box;
+}
+
+.swiper-pagination-bullet-active {
+  --swiper-theme-color: #ffffff;
+  --swiper-pagination-color: #ffffff;
+}
+
+.products {
+  .swiper-button-next,
+  .swiper-button-prev {
+    background: transparent;
+    @apply p-8;
+    --swiper-navigation-color: #aeaea9;
+    --swiper-navigation-size: 32px;
+  }
+
+  .swiper-pagination-bullet {
+    --swiper-pagination-bullet-size: 1rem;
+    --swiper-pagination-bullet-inactive-color: #aeaea9 0 0 no-repeat padding-box;
+  }
+
+  .swiper-pagination-bullet-active {
+    --swiper-theme-color: #aeaea9;
+    --swiper-pagination-color: #aeaea9;
+  }
+}
+
+.card-primary {
+  text-align: center;
+  letter-spacing: 0;
+  color: #ffffff;
+  text-shadow: 4px 2px 5px #000000b8;
+  opacity: 1;
+  font-family: "Roboto", sans-serif;
+}
