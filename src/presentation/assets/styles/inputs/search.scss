@@ -1,0 +1,17 @@
+.search {
+  @apply bg-white border-0 p-2 focus:outline-0;
+}
+
+.btn-search {
+  @apply bg-white w-10 flex justify-center items-center transition ease-in-out delay-150;
+  font-size: 13px;
+  line-height: 18px;
+  display: inline;
+  &:before {
+    content: '';
+    display: block;
+    height: 20px;
+    border-left: 1px solid #e6e6e6;
+    position: absolute;
+  }
+}
