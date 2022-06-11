@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import ProductsPage from "../../presentation/pages/ProductsPage";
-import CategoriesPage from "../../presentation/pages/CategoriesPage";
+import IndexProductsPage from "../../presentation/pages/products/IndexProductsPage";
+import CategoriesPage from "../../presentation/pages/categories/CategoriesPage";
+import ShowProductsPage from "../../presentation/pages/products/ShowProductsPage";
 
 export const ROUTES = [
   {
@@ -20,12 +21,17 @@ export const ROUTES = [
   {
     path: "/resultados/buscar",
     key: "results",
-    element: ProductsPage,
+    element: IndexProductsPage,
   },
   {
     path: "/resultados/categorias/:category",
     key: "results-by-category",
-    element: ProductsPage,
+    element: IndexProductsPage,
+  },
+  {
+    path: "/:category/:id/:name",
+    key: "show-product",
+    element: ShowProductsPage,
   },
 ];
 

@@ -33,3 +33,15 @@ export function getProducts(params) {
       return Promise.reject(error);
     });
 }
+
+export function searchProduct(id) {
+  return service
+    .get(`/items/${id}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((e) => {
+      const error = (e && e.message) || e.statusText;
+      return Promise.reject(error);
+    });
+}
