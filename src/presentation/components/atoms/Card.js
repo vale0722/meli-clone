@@ -4,11 +4,20 @@ import {
   formatter,
   getPrices,
 } from "../../../domain/helpers/currency-formatter";
+import { formatterItemRoute } from "../../../domain/helpers/route-formatter";
+import history from "../../../domain/helpers/history";
 
 export default function Card({ product, className }) {
   const prices = getPrices(product.prices);
+  const showItem = () => {
+    let route = formatterItemRoute(product.category_id, product.id, product.title ?? '')
+    history.push(route);
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
+  };
+
   return (
-    <div className={"w-full px-20 sm:px-10 md:px-30 lg:p-0 transform duration-150 hover:scale-105 " + className}>
+    <button onClick={showItem} className={"w-full px-20 sm:px-10 md:px-30 lg:p-0 transform duration-150 hover:scale-105 " + className}>
       <div className="w-full bg-white h-full border shadow-sm transform transition cursor-pointer product-card flex flex-col justify-between">
         <img
           className="bg-white w-full"
@@ -40,6 +49,6 @@ export default function Card({ product, className }) {
           <h1 className="text-sm text-left">{product.title}</h1>
         </div>
       </div>
-    </div>
+    </button>
   );
 }

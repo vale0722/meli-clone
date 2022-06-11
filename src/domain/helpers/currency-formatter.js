@@ -6,7 +6,7 @@ const PRICE_TYPES = {
   PERCENTAGE: "percentage",
 };
 
-function evaluatePercentage(promotion, original) {
+export function evaluatePercentage(promotion, original) {
   return (100 - (promotion * 100) / original).toFixed(2);
 }
 
