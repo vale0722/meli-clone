@@ -29,7 +29,7 @@ export const ROUTES = [
     element: IndexProductsPage,
   },
   {
-    path: "/:category/:id/:name",
+    path: "resultados/:category/:id/:name",
     key: "show-product",
     element: ShowProductsPage,
   },
