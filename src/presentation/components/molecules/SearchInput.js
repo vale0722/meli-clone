@@ -10,7 +10,7 @@ export default function SearchInput() {
     const submitAction = async (e) => {
         e.preventDefault();
         // eslint-disable-next-line no-restricted-globals
-        history.push(location.pathname + '?q=' + input);
+        history.push('/resultados/buscar?q=' + input);
         // eslint-disable-next-line no-restricted-globals
         location.reload();
         await setInput('')
